@@ -1,5 +1,6 @@
+import os
 import socket
-
+from tkinter import filedialog
 
 CHUNK_SIZE = 4096
 
@@ -16,7 +17,8 @@ if(soc.recv(CHUNK_SIZE).decode()=='error'):
     print('Error en autenticación')
     soc.close()
 else:
-    file=open('tosend.txt','rb')
+    pathh=filedialog.askopenfilename(initialdir=os.getcwd())
+    file=open(pathh,'rb')
     data=file.read(CHUNK_SIZE)
     soc.sendall(data)
     print('Se envió archivo')
