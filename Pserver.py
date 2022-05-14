@@ -32,14 +32,14 @@ if(usr not in users.keys()):
     msg=f'Inicio de sesión fallido-Usuario: {usr} no existe-{t}\n'
     print(msg)
     logi.write(msg)
-    x.sendall(str('error').encode())
+    x.sendall(str('error1').encode())
     soc.close()
 elif(pss!=users[usr]):
     t = datetime.now().strftime("%m/%d/%Y, %H:%M:%S")
     msg = f'Inicio de sesión fallido-Contraseña incorrecta de {usr}-{t}\n'
     print(msg)
     logi.write(msg)
-    x.sendall(str('error').encode())
+    x.sendall(str('error2').encode())
     soc.close()
 else:
     t = datetime.now().strftime("%m/%d/%Y, %H:%M:%S")

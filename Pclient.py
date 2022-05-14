@@ -12,9 +12,12 @@ password=input('introduce tu contraseña:')
 usrInfo=username+'|'+password
 
 soc.sendall(str(usrInfo).encode())
-
-if(soc.recv(CHUNK_SIZE).decode()=='error'):
-    print('Error en autenticación')
+x=soc.recv(CHUNK_SIZE).decode()
+if(x=='error1'):
+    print('Error en autenticación-Usuario inexistente')
+    soc.close()
+elif(x=='error2'):
+    print('Error en autenticación-Contraseña incorrecta')
     soc.close()
 else:
     pathh=filedialog.askopenfilename(initialdir=os.getcwd())
